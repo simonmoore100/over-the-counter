@@ -1,0 +1,11 @@
+<% var startNumber = (transactionKey === 'dc' && transaction['allow_zero_document_count']) ? 0 : 1; -%>
+<p>
+  <label for="transaction_<%= transactionKey %>">
+    <%= questionText %><br />
+    <select name="transaction[<%= transactionKey %>]" id="transaction_<%= transactionKey %>">
+    <% for (var num = startNumber; num < 9; num++) { %>
+      <option value="<%= num %>"><%= num %></option>
+    <% } -%>
+    </select>
+  </label>
+</p>

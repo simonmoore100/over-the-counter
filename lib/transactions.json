@@ -1,0 +1,108 @@
+{
+  "pay-register-death-abroad":{
+    "account":"birth-death-marriage",
+	"tracking_site_id":7,
+    "test_tracking_site_id":14,
+    "registration_type":"death",
+    "registration":true,
+    "document_cost":65,
+    "allow_zero_document_count":true,
+    "registration_cost":105,
+    "postage_options": [
+      { "key":"uk",
+        "cost":4.5,
+        "label":"UK address or British Forces Post Office"
+      },
+      {
+        "key":"europe",
+        "cost":12.5,
+        "label":"Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Liechtenstein, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey and Ukraine)"
+      },
+      {
+        "key":"rest-of-world",
+        "cost":22,
+        "label":"Rest of the world"
+      }
+    ],
+    "title":"Payment to register a death abroad"
+  },
+  "pay-legalisation-post":{
+    "account":"legalisation-post",
+	"tracking_site_id":5,
+    "test_tracking_site_id":12,
+    "postage_options": [
+      {
+        "key":"prepaid",
+        "cost":0,
+        "label":"Prepaid envelope that you provide (to the UK only)"
+      },
+      {
+        "key":"uk",
+        "cost":4.5,
+        "label":"Tracked courier service to the UK or British Forces Post Office including Isle of Man and Channel Islands"
+      },
+      {
+        "key":"europe",
+        "cost":12.5,
+        "label":"Tracked courier service to Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia & Herzegovina, Georgia, Liechtenstein, Kazakhstan, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey, Ukraine)"
+      },
+      {
+        "key":"rest-of-world",
+        "cost":22,
+        "label":"Tracked courier service to the rest of the world"
+      }
+    ],
+    "document_cost":30,
+    "allow_zero_document_count":true,
+    "title":"Pay to legalise documents by post"
+  },
+  "pay-legalisation-drop-off":{
+    "account":"legalisation-drop-off",
+	"tracking_site_id":4,
+    "test_tracking_site_id":11,
+    "document_cost":75,
+    "postage_cost":false,
+    "title":"Pay to legalise documents using the drop-off service"
+  },
+  "pay-register-birth-abroad":{
+    "account":"birth-death-marriage",
+	"tracking_site_id":6,
+    "test_tracking_site_id":13,
+    "registration_type":"birth",
+    "registration":true,
+    "document_cost":65,
+    "allow_zero_document_count":true,
+    "registration_cost":105,
+    "postage_options": [
+      {
+        "key":"uk",
+        "cost":4.5,
+        "label":"UK address or British Forces Post Office"
+      },
+      {
+        "key":"europe",
+        "cost":12.5,
+        "label":"Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Liechtenstein, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey and Ukraine)"
+      },
+      {
+        "key":"rest-of-world",
+        "cost":22,
+        "label":"Rest of the world"
+      }
+    ],
+    "title":"Payment to register a birth abroad"
+  },
+  "pay-foreign-marriage-certificates":{
+	    "account":"birth-death-marriage",
+		"tracking_site_id":3,
+		"test_tracking_site_id":15,
+	    "document_types":{
+	      "certificate-of-no-impediment":"certificate of no impediment",
+	      "nulla-osta":"Nulla Osta"
+	    },
+	    "registration":false,
+	    "document_cost":65,
+	    "postage_cost":10,
+	    "title":"Payment for certificates to get married abroad"
+	  }
+}

@@ -1,0 +1,71 @@
+@import "measurements.scss";
+@import "conditionals.scss";
+@import "colours.scss";
+@import "grid_layout.scss";
+@import "typography.scss";
+@import "design-patterns/_buttons.scss";
+
+#wrapper {
+  @extend %site-width-container;
+
+  @include core-19;
+  padding-bottom: $gutter * 2;
+}
+
+#content {
+  @extend %grid-row;
+
+  .page-header,
+  .article-container {
+    @include grid-column(2/3);
+  }
+
+  h1 {
+    margin: $gutter-half 0;
+    @include bold-48;
+
+    @include media(tablet) {
+      margin: $gutter 0;
+    }
+  }
+
+  .button {
+    @include button;
+  }
+
+  .get-started {
+    .button {
+      @include bold-24;
+    }
+    .destination {
+      display: block;
+      margin-top: .5em;
+      @include core-14;
+      color: $grey-1;
+    }
+  }
+
+  .address {
+    margin: 2.5em 0;
+  }
+
+  .info-notice {
+    margin-bottom: 1em;
+    padding: 0.1em 0 0.1em 1em;
+    border-left: 10px #dee0e2 $grey-3;
+  }
+
+  .contact {
+    margin: 0.75em;
+  }
+  
+  .error-message {
+  margin: 0.4em -0.7em 0.4em -0.8em;
+  padding: 0.5em 0.65em;
+  border-left-color: #df3034;
+  border-left-width: 3px;
+  border-left-style: solid;
+  background-color: #fef7f7;
+  list-style-type: none;
+  } 
+}

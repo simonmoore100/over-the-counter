@@ -1,0 +1,14 @@
+
+<h2>Receipt</h2>
+
+<p>Thank you for your order from the Foreign & Commonwealth Office. We have taken payment for the following:</p>
+
+<div class ="content-block">
+	<div class ="application-notice info-notice">
+		<p>Date: <%= date %></p>
+		<p>Payment Reference: <%= responseParameters.merchantReference %></p>
+		<p>Service: <%= transaction.slug %></p>
+		<p>Amount: &pound;<%= formatMoney(responseParameters.paymentAmount) %></p>
+		<p>You have paid &pound;<%= formatMoney(merchantReturnDataJson.pa) %> for <%= pluralise("documents", documentCount(merchantReturnDataJson))%> including <%= capitalise(merchantReturnDataJson.po) %> postage</p>
+	</div>
+</div>

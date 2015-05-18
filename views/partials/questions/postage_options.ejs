@@ -1,0 +1,11 @@
+<p><%= questionText %></p>
+<ul class="options-list">
+  <% var postageOptions = transaction.postage_options %>
+  <% postageOptions.forEach(function (option) { %>
+    <li>
+      <label for="transaction_postage_option_<%= option.key %>">
+        <input type="radio" id="transaction_postage_option_<%= option.key %>" required name="transaction[po]" value="<%= option.key %>" /> <%= option.label %> - &pound;<%= formatMoney(option.cost) %>
+      </label>
+    </li>
+  <% }) -%>
+</ul>

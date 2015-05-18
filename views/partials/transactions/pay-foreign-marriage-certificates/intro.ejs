@@ -1,0 +1,9 @@
+<p>Pay for documents you need from the Foreign &amp; Commonwealth Office (FCO) to prove you’re allowed to get married abroad.</p>
+
+<%- partial("partials/questions/document_type", { questionText: "Which type of certificate do you need?" }) %>
+
+<%- partial("partials/questions/document_count", { questionText: "How many do you need? Each certificate costs &pound;65." }) %>
+
+<%- partial("partials/questions/postage_fee_yes_no", { questionText: "Do you want to pay the &pound;" + transaction.postage_cost + " postage fee to have your documents returned?" }) %>
+
+<%- partial("partials/questions/email_address", { questionText: "Please enter your email address" }) %>

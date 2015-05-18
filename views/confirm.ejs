@@ -1,0 +1,37 @@
+<main id="content" role="main" class="group">
+
+  <header class="page-header group">
+    <div>
+      <h1><%= transaction.title %></h1>
+    </div>
+  </header>
+  <div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
+
+        <%- partial("partials/transactions/" + transaction.slug + "/_confirm", { calculation: calculation }) %>
+        
+		<form action="https://test.barclaycardsmartpay.com/callcenter/action/callcenter.shtml" method="post" class="smartpay-submit">
+        <input type="hidden" name="merchantAccount" value="<%= requestParameters.merchantAccount %>" />
+		<input type="hidden" name="paymentAmount" value="<%= requestParameters.paymentAmount %>" />
+		<input type="hidden" name="currencyCode" value="<%= requestParameters.currencyCode %>" />
+		<input type="hidden" name="merchantReference" value="<%= requestParameters.merchantReference %>" />
+		<input type="hidden" name="shopperReference" value="<%= requestParameters.shopperReference %>" />
+		<% if (requestParameters.shopperEmail !== 'blank') { %>
+		<input type="hidden" name="shopperEmail" value="<%= requestParameters.shopperEmail %>" />
+		<% } %>
+        <p id="get-started" class="get-started group">
+          <button class="button" type="submit" onclick="openReceipt()">Pay</button>
+		  <script>
+			function openReceipt() {
+				var url = '/receipt?merchantReference=<%= requestParameters.merchantReference %>&paymentAmount=<%= requestParameters.paymentAmount/100 %>&merchantReturnData=<%= requestParameters.merchantReturnData %>';
+				window.open(url);
+			}
+		  </script>
+          <span class="destination"> on Barclaycard</span>
+        </p>
+      </div>
+    </article>
+  </div>
+
+</main>
