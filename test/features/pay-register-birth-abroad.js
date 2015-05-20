@@ -18,7 +18,7 @@ describe("Pay to register a birth abroad", function(){
 
   describe("start", function(){
     it("render the transaction intro page and generate the payment form when 'Calculate total' is clicked", function(done){
-      browser.visit("/start", {}, function(err){
+      browser.visit("/otc/start", {}, function(err){
 
        // should.not.exist(err);
 
@@ -56,7 +56,7 @@ describe("Pay to register a birth abroad", function(){
     });
     describe("start with birth country parameter", function(){
       it("renders the transaction intro page and generates the payment form", function(done){
-        browser.visit("/start?country=spain", {}, function(err){
+        browser.visit("/otc/start?country=spain", {}, function(err){
 
         //should.not.exist(err);
 

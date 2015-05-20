@@ -2,7 +2,7 @@
 
 # Build script to ensure static assets are built and copied
 # to the correct places
-# A working person's version of gulp.js 
+# A working person's version of gulp.js
 
 MAGENTA="\033[1;35m"
 RED="\033[1;31m"
@@ -30,12 +30,12 @@ function install_modules() {
 
 function copy_assets() {
   color_prompt "$RED Deleting public/govuk_template"
-  rm -rf public/govuk_template
+  rm -rf public/otc/govuk_template
   color_prompt "Copying node_modules/govuk_template_ejs/assets into public/govuk_template"
-  mkdir public/govuk_template
-  cp -r node_modules/govuk_template_ejs/assets/* public/govuk_template
+  mkdir public/otc/govuk_template
+  cp -r node_modules/govuk_template_ejs/assets/* public/otc/govuk_template
   color_prompt "The contents of public/govuk_template now looks like"
-  ls -lahR public/govuk_template
+  ls -lahR public/otc/govuk_template
 }
 
 function copy_templates() {

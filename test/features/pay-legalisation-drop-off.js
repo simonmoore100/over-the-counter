@@ -18,7 +18,7 @@ describe("Pay to legalise documents using the drop off service", function(){
 
   describe("start", function(){
     it("render the transaction intro page and generate the payment form when 'Calculate total' is clicked", function(done){
-      browser.visit("/start", {}, function(err){
+      browser.visit("/otc/start", {}, function(err){
 
        // should.not.exist(err);
 

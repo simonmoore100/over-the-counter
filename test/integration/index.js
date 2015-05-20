@@ -6,12 +6,12 @@ var app = require('./../../app'),
 describe("GET /", function(){
   it("should respond successfully", function(){
     request(app)
-      .get("/")
+      .get("/otc/")
       .set("host", "pay-register-birth-abroad.test.gov.uk")
       .expect(302)
       .end(function(err, res){
         should.not.exist(err);
-        res.text.should.equal("Moved Temporarily. Redirecting to /start");
+        res.text.should.equal("Moved Temporarily. Redirecting to /otc/start");
       });
   });
 });
@@ -34,14 +34,14 @@ describe("running in the preview environment", function() {
   });
   it("should attempt to authenticate when NODE_ENV is 'preview'", function() {
     request(app)
-      .get("/")
+      .get("/otc/")
       .expect(401);
   });
   it("should authenticate using credentials from environment vars and redirect to a secure URL", function() {
     var basicAuthVal = 'Basic' + new Buffer('foobar').toString('base64') +
       ':' + new Buffer('barfoo').toString('base64');
     request(app)
-      .get("/")
+      .get("/otc/")
       .set('authorization', basicAuthVal)
       .expect(301)
       .end(function(err, res){

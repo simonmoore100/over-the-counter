@@ -43,7 +43,7 @@ describe("smart_pay routes", function () {
 	describe("start", function () {
 		it("should find the appropriate transaction", function (done) {
 			request(app)
-				.get('/start')
+				.get('/otc/start')
 				.set('host', 'pay-register-death-abroad.service.gov.uk')
 				.expect(200)
 				.end(function (err, res) {
@@ -57,7 +57,7 @@ describe("smart_pay routes", function () {
 		});
 		it("should find the appropriate transaction from a preview subdomain structure", function (done) {
 			request(app)
-				.get('/start')
+				.get('/otc/start')
 				.set('host', 'www.preview.pay-register-death-abroad.service.gov.uk')
 				.expect(200)
 				.end(function (err, res) {
@@ -71,7 +71,7 @@ describe("smart_pay routes", function () {
 		});
 		it("should set strict-transport-security and x-frame-options headers", function (done) {
 			request(app)
-				.get('/start')
+				.get('/otc/start')
 				.set('x-forwarded-proto', 'https')
 				.set('host', 'pay-register-death-abroad.service.gov.uk')
 				.expect(200)
@@ -84,7 +84,7 @@ describe("smart_pay routes", function () {
 		});;
 		it("should set the correct expiry headers", function (done) {
 			request(app)
-				.get('/start')
+				.get('/otc/start')
 				.set('host', 'pay-register-death-abroad.service.gov.uk')
 				.expect(200)
 				.end(function (err, res) {
@@ -95,7 +95,7 @@ describe("smart_pay routes", function () {
 		});
 		it("should return a 404 if the subdomain does not match a transaction", function (done) {
 			request(app)
-				.get('/start')
+				.get('/otc/start')
 				.set('host', 'pay-register-a-dog-abroad.service.gov.uk')
 				.expect(404)
 				.end(function (err, res) {
@@ -107,11 +107,11 @@ describe("smart_pay routes", function () {
 	describe("GET /confirm", function () {
 		it("should redirect to /start", function () {
 			request(app)
-				.get('/confirm')
+				.get('/otc/confirm')
 				.expect(302)
 				.end(function (err, res) {
 					should.not.exist(err);
-					res.headers['location'].should.equal('/start');
+					res.headers['location'].should.equal('/otc/start');
 				});
 		});
 	});
@@ -119,7 +119,7 @@ describe("smart_pay routes", function () {
 		describe("given a zero document count", function () {
 			it("should assign an error", function (done) {
 				request(app)
-					.post('/confirm')
+					.post('/otc/confirm')
 					.set('host', 'pay-foreign-marriage-certificates.service.gov.uk')
 					.send({
 						'transaction': {
@@ -141,7 +141,7 @@ describe("smart_pay routes", function () {
 		describe("given an invalid document type", function () {
 			it("should render the start template and assign an error", function (done) {
 				request(app)
-					.post('/confirm')
+					.post('/otc/confirm')
 					.set('host', 'pay-foreign-marriage-certificates.service.gov.uk')
 					.send({
 						'transaction': {
@@ -164,7 +164,7 @@ describe("smart_pay routes", function () {
 	describe("done pages", function () {
 		it("returns 404 status if subdomain doesn't match a transaction", function (done) {
 			request(app)
-				.get('/done')
+				.get('/otc/done')
 				.set('host', 'pay-bear-tax.service.gov.uk')
 				.expect(404)
 				.end(function (err, res) {

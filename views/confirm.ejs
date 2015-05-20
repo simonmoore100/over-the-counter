@@ -24,7 +24,7 @@
           <button class="button" type="submit" onclick="openReceipt()">Pay</button>
 		  <script>
 			function openReceipt() {
-				var url = '/receipt?merchantReference=<%= requestParameters.merchantReference %>&paymentAmount=<%= requestParameters.paymentAmount/100 %>&merchantReturnData=<%= requestParameters.merchantReturnData %>';
+				var url = '/otc/receipt?merchantReference=<%= requestParameters.merchantReference %>&paymentAmount=<%= requestParameters.paymentAmount/100 %>&merchantReturnData=<%= requestParameters.merchantReturnData %>';
 				window.open(url);
 			}
 		  </script>

@@ -5,7 +5,7 @@ var app = require('./../../app'),
 describe("A non existant route", function () {
   it("should respond with the 404 page", function(done){
     request(app)
-      .get("/no-internet-here")
+      .get("/otc/no-internet-here")
       .set('host','pay-register-death-abroad.service.gov.uk')
       .expect(404)
       .end(function(err, res){
@@ -19,7 +19,7 @@ describe("A non existant route", function () {
 describe("An internal server error", function () {
   it("should respond with the 500 page", function(done){
     request(app)
-      .post('/confirm')
+      .post('/otc/confirm')
       .set('host','pay-register-birth-abroad.service.gov.uk')
       .expect(500)
       .end(function(err, res){

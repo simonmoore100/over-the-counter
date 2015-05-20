@@ -66,14 +66,14 @@ if ('development' === app.get('env')) {
 app.get('/healthcheck', routes.healthcheck);
 
 // Redirect root to transaction start page on GOV.UK
-app.get('/', routes.smart_pay.middleware.findTransaction, routes.smart_pay.rootRedirect);
+app.get('/otc/', routes.smart_pay.middleware.findTransaction, routes.smart_pay.rootRedirect);
 
 // EPDQ Transaction Routes.
-app.get('/start', routes.smart_pay.middlewares, routes.smart_pay.start);
-app.post('/confirm', routes.smart_pay.middleware.findTransaction, routes.smart_pay.confirm);
-app.get('/confirm', function (req, res) { res.redirect('/start'); });
-app.get('/receipt', routes.smart_pay.middleware.findTransaction, routes.smart_pay.receipt);
-app.post('/notification', routes.smart_pay.middleware.findTransaction, routes.smart_pay.notification);
+app.get('/otc/start', routes.smart_pay.middlewares, routes.smart_pay.start);
+app.post('/otc/confirm', routes.smart_pay.middleware.findTransaction, routes.smart_pay.confirm);
+app.get('/otc/confirm', function (req, res) { res.redirect('/otc/start'); });
+app.get('/otc/receipt', routes.smart_pay.middleware.findTransaction, routes.smart_pay.receipt);
+app.post('/otc/notification', routes.smart_pay.middleware.findTransaction, routes.smart_pay.notification);
 
 module.exports = app;
 
