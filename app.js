@@ -72,7 +72,7 @@ app.get('/', routes.smart_pay.middleware.findTransaction, routes.smart_pay.rootR
 app.get('/start', routes.smart_pay.middlewares, routes.smart_pay.start);
 app.post('/confirm', routes.smart_pay.middleware.findTransaction, routes.smart_pay.confirm);
 app.get('/confirm', function (req, res) { res.redirect('/start'); });
-app.get('/done', routes.smart_pay.middleware.findTransaction, routes.smart_pay.done);
+app.get('/receipt', routes.smart_pay.middleware.findTransaction, routes.smart_pay.receipt);
 app.post('/notification', routes.smart_pay.middleware.findTransaction, routes.smart_pay.notification);
 
 module.exports = app;
